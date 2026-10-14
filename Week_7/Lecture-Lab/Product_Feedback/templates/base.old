@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- mobile friendly scaling -->
+    <title>Product Feedback</title>
+
+    <!-- Water.css for basic styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
+</head>
+<body>
+
+<h1>Product Feedback Application</h1>
+
+{# child pages fill this #}
+<div>
+    {% block content %}{% endblock %}
+</div>
+
+<a href="/">Home page</a>  <!--link back to form.-->
+</body>
+</html>

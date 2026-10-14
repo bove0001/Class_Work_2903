@@ -5,6 +5,10 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 
+@app.route('/about')
+def about():
+    return 'A first flask web application.'    
+
 if __name__ == '__main__':
     app.run(debug=True)
     

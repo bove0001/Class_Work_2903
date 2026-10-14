@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Admin Page</h2>
+
+{# total feedback count #}
+<p>Number of feedbacks: {{ feedback_count }}</p>
+<hr>    
+<!-- Loop through each feedback -->
+{% for feedback in feedbacks %}
+
+<div>
+    <p>Name: {{feedback.name}}</p>
+    <p>Email: {{feedback.email}}</p>
+    <p>Feedback: {{feedback.description}}</p>
+
+
+    {# Show image if uploded #}
+    {% if feedback.image_path %}
+        <p>Image</p>
+        <img style="max-height: 300px" src="{{user_image_location}}/{{feedback.image_path}}">  <!-- capped height -->
+    {% else %}
+        <p>No image</p>  {#nothing was atached.#}
+    {% endif %}
+    <hr>  {# horizontal line between feedbacks #}
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

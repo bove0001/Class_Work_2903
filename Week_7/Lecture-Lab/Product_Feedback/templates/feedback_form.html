@@ -1,0 +1,72 @@
+{# uses base.html layout #}
+{% extends 'base.html' %}
+{% block content %}  <!-- start page content -->
+
+<!-- old plain heading, moved into card -->
+<!-- <h2>Broken Product Feedback Form</h2> -->
+
+{# card gives colored box #}
+<div class="card border-primary shadow-sm mt-3">
+
+    <!-- Blue header bar -->
+    <div class="card-header bg-primary text-white">
+        <h2 class="h4 mb-0">Broken Product Feedback Form</h2>  {# page heading #}
+    </div>
+
+    <div class="card-body bg-light">  <!-- light gray backround -->
+
+<!-- Old unstyled form, replaced below
+<form method="POST" action="submit_feedback" enctype="multipart/form-data">
+
+    <label for="name">Name</label><input id="name" name="name" required>
+    <label for="email">email</label><input id="email" name="email" type="email" required>
+    <label for="description">Describe the issue</label> <textarea id="description" name="description" required></textarea>
+    <label for="image">Image</lable> <input name="image" type="file" required>
+
+    <button type="submit">Submit Feedback</button>
+
+</form>
+-->
+
+{# enctype needed for file uploads #}
+<!-- POST goes to submit_feedback route -->
+<form method="POST" action="/submit_feedback" enctype="multipart/form-data">
+
+    <!-- Name field -->
+    <div class="mb-3">  {# spacing below each field #}
+        <label for="name" class="form-label fw-semibold">Name</label>  <!-- bold labels -->
+        <input id="name" name="name" class="form-control" required>  <!-- can't submit if empty -->
+    </div>
+
+    <!--email, browser checks format-->
+    <div class="mb-3">
+        <label for="email" class="form-label fw-semibold">Email</label>
+        <input id="email" name="email" type="email" class="form-control" required>  {# full width input box #}
+    </div>
+
+    {# Issue descripton box #}
+    <div class="mb-3">
+        <label for="description" class="form-label fw-semibold">Describe the issue</label>
+        <!-- rows sets starting hieght -->
+        <textarea id="description" name="description" class="form-control" rows="4" required></textarea>
+    </div>
+
+    <!-- Optional image upload. -->
+    <div class="mb-3">
+        <label for="image" class="form-label fw-semibold">Image</label>  {# for matches input id #}
+        <input id="image" name="image" type="file" class="form-control">  <!-- name must match request.files -->
+        <div class="form-text">Optional</div>  {# small gray hint text #}
+    </div>
+
+    <!-- old blue button -->
+    <!-- <button type="submit" class="btn btn-primary">Submit Feedback</button> -->
+
+    {# btn-success makes it green #}
+    <button type="submit" class="btn btn-success">Submit Feedback</button>  <!-- sends form to Flask -->
+
+</form>
+
+    </div>  <!-- end card body -->
+</div>  {# end of card #}
+
+{% endblock %}  <!--end of content.-->
